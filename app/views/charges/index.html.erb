@@ -19,7 +19,7 @@
       <% @charges.each do |charge| %>
       <tr>
         <td><%= charge.payer.email %></td>
-        <td><%= charge.ower_id %></td>
+        <td><%= charge.ower.email %></td>
         <td><%= charge.event_id %></td>
         <td><%= charge.amount %></td>
         <td>
