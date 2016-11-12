@@ -24,7 +24,7 @@
           Payer
         </label>
 
-        <input type="text" id="payer_id" name="payer_id" placeholder="Payer" class="form-control" value="<%= @charge.payer_id %>">
+        <%= select_tag(:payer_id, options_from_collection_for_select(User.all, :id, :email, @charge.payer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for ower_id -->
