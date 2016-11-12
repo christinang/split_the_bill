@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many charges_paid -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Charges_paid
+      </li>
+
+      <% @user.charges_paid.each do |charge| %>
+        <li class="list-group-item">
+          <a href="/charges/<%= charge.id %>">
+            <%= charge.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/charges/<%= charge.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/charges/<%= charge.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_charge/<%= charge.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many charges_owed -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Charges_owed
+      </li>
+
+      <% @user.charges_owed.each do |charge| %>
+        <li class="list-group-item">
+          <a href="/charges/<%= charge.id %>">
+            <%= charge.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/charges/<%= charge.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/charges/<%= charge.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_charge/<%= charge.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
