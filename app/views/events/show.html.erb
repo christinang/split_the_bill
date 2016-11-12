@@ -57,6 +57,41 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_charge" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for payer_id -->
+      <input type="hidden" name="payer_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for ower_id -->
+      <div class="form-group">
+        <label for="ower_id" class="control-label">
+          Ower
+        </label>
+
+        <%= select_tag(:ower_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for event_id -->
+      <input type="hidden" name="event_id" value="<%= @event.id %>">
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Charge
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

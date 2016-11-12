@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @charge = Charge.new
     @event = Event.find(params[:id])
 
     render("events/show.html.erb")
