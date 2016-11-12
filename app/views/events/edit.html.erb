@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @event.errors.any? %>
+  <% @event.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Event #<%= @event.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_event/<%= @event.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_name -->
+      <div class="form-group">
+        <label for="event_name" class="control-label">
+          Event name
+        </label>
+
+        <input type="text" id="event_name" name="event_name" placeholder="Event name" class="form-control" value="<%= @event.event_name %>">
+      </div>
+
+      <!-- Label and input for event_description -->
+      <div class="form-group">
+        <label for="event_description" class="control-label">
+          Event description
+        </label>
+
+        <input type="text" id="event_description" name="event_description" placeholder="Event description" class="form-control" value="<%= @event.event_description %>">
+      </div>
+
+      <!-- Label and input for total_cost -->
+      <div class="form-group">
+        <label for="total_cost" class="control-label">
+          Total cost
+        </label>
+
+        <input type="text" id="total_cost" name="total_cost" placeholder="Total cost" class="form-control" value="<%= @event.total_cost %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Event
+      </button>
+      or
+      <a href="/events/<%= @event.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
