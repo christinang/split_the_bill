@@ -1,6 +1,8 @@
 class Charge < ApplicationRecord
   # Direct associations
 
+  belongs_to :event
+
   belongs_to :ower,
              :class_name => "User"
 
