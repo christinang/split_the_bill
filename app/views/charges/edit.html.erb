@@ -33,7 +33,7 @@
           Ower
         </label>
 
-        <input type="text" id="ower_id" name="ower_id" placeholder="Ower" class="form-control" value="<%= @charge.ower_id %>">
+        <%= select_tag(:ower_id, options_from_collection_for_select(User.all, :id, :email, @charge.ower_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for event_id -->
