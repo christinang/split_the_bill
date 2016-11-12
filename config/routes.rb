@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "events#index"
   # Routes for the Charge resource:
   # CREATE
   get "/charges/new", :controller => "charges", :action => "new"
