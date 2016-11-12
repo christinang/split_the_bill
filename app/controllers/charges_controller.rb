@@ -10,7 +10,7 @@ class ChargesController < ApplicationController
   end
 
   def index
-    @charges = Charge.all
+    @charges = Charge.page(params[:page])
 
     render("charges/index.html.erb")
   end
