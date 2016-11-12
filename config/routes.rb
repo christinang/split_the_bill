@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Charge resource:
+  # CREATE
+  get "/charges/new", :controller => "charges", :action => "new"
+  post "/create_charge", :controller => "charges", :action => "create"
+
+  # READ
+  get "/charges", :controller => "charges", :action => "index"
+  get "/charges/:id", :controller => "charges", :action => "show"
+
+  # UPDATE
+  get "/charges/:id/edit", :controller => "charges", :action => "edit"
+  post "/update_charge/:id", :controller => "charges", :action => "update"
+
+  # DELETE
+  get "/delete_charge/:id", :controller => "charges", :action => "destroy"
+  #------------------------------
+
   # Routes for the Event resource:
   # CREATE
   get "/events/new", :controller => "events", :action => "new"

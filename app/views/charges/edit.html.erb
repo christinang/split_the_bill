@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @charge.errors.any? %>
+  <% @charge.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Charge #<%= @charge.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_charge/<%= @charge.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for payer_id -->
+      <div class="form-group">
+        <label for="payer_id" class="control-label">
+          Payer
+        </label>
+
+        <input type="text" id="payer_id" name="payer_id" placeholder="Payer" class="form-control" value="<%= @charge.payer_id %>">
+      </div>
+
+      <!-- Label and input for ower_id -->
+      <div class="form-group">
+        <label for="ower_id" class="control-label">
+          Ower
+        </label>
+
+        <input type="text" id="ower_id" name="ower_id" placeholder="Ower" class="form-control" value="<%= @charge.ower_id %>">
+      </div>
+
+      <!-- Label and input for event_id -->
+      <div class="form-group">
+        <label for="event_id" class="control-label">
+          Event
+        </label>
+
+        <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @charge.event_id %>">
+      </div>
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @charge.amount %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Charge
+      </button>
+      or
+      <a href="/charges/<%= @charge.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
