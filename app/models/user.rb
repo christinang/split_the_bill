@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :charges_owed,
+             :class_name => "Charge",
+             :foreign_key => "ower_id",
+             :dependent => :destroy
+
   has_many   :charges_paid,
              :class_name => "Charge",
              :foreign_key => "payer_id",
