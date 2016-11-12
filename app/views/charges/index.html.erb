@@ -24,8 +24,11 @@
         <td><%= charge.amount %></td>
         <td>
           <a href="/charges/<%= charge.id %>" class="btn btn-primary">Show</a>
-          <a href="/charges/<%= charge.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_charge/<%= charge.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == charge.payer %>
+            <a href="/charges/<%= charge.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_charge/<%= charge.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
